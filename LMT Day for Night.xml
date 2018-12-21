@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<ProcessList xmlns="urn:NATAS:AMPAS:LUT:v2.0" id="BMD_LMT_DayForNight_v1" name="LMT Day For Night" compCLFversion="2.0">
+	<Description>Simple Day for Night Look</Description>
+	<InputDescriptor>ACES (SMPTE ST 2065-1)</InputDescriptor>
+    <OutputDescriptor>ACES (SMPTE ST 2065-1)</OutputDescriptor>
+	<Matrix inBitDepth="16f" outBitDepth="16f" >
+		<Description>Convert ACES (AP0) to ACES (AP1)</Description>
+		<Array dim="3 3">
+			1.45143931614566579 -0.23651074689374021 -0.21492856925192538
+       	   -0.07655377339602076  1.17622969983357284 -0.09967592643755215
+       	    0.00831614842569772 -0.00603244979102103  0.99771630136532330
+		</Array>
+	</Matrix>
+	<ASC_CDL inBitDepth="16f" outBitDepth="16f" style="FwdNoClamp">
+		<SOPNode>
+			<Slope>1.0 1.0 1.0</Slope>
+			<Offset>0.0 0.0 0.0</Offset>
+			<Power>0.5 0.5 0.5</Power>
+		</SOPNode>
+	</ASC_CDL>
+	<ASC_CDL inBitDepth="16f" outBitDepth="16f" style="FwdNoClamp">
+		<SOPNode>
+			<Slope> 0.3 0.5 0.8</Slope>
+			<Offset>0.0 0.0 0.0</Offset>
+			<Power>2.2 2.2 2.2</Power>
+		</SOPNode>
+		<SATNode>
+			<Saturation>0.3</Saturation>
+		</SATNode>
+	</ASC_CDL>
+	<Matrix inBitDepth="16f" outBitDepth="16f" >
+		<Description>Convert from ACES (AP1) to ACES (AP0)</Description>
+		<Array dim="3 3">
+			0.69545224135745165  0.14067869647029416  0.16386906217225405
+			0.04479456337203777  0.85967111845642186  0.09553431817154040
+		   -0.00552588255811354  0.00402521030597866  1.00150067225213490
+		</Array>
+	</Matrix>
+	<Range inBitDepth="16f" outBitDepth="16f" style = "Clamp" >
+		<Description>ACES range (negatives clipped)</Description>
+        <minInValue>0.0</minInValue>
+        <maxInValue>65504.0</maxInValue>
+        <minOutValue>0.0</minOutValue>
+        <maxOutValue>65504.0</maxOutValue>
+    </Range>
+</ProcessList>

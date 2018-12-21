@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<ProcessList xmlns="urn:NATAS:AMPAS:LUT:v2.0" id="BLUE_HIGHLIGHT_FIX_v1" name="LMT Neon Suppression" compCLFversion="2.0">
+	<Description>Fixes artifacts in bright saturated blues (and reds) from cameras whose gamuts extend outside the AP0 primaries.</Description>
+	<InputDescriptor>ACES (SMPTE ST 2065-1)</InputDescriptor>
+    <OutputDescriptor>ACES (SMPTE ST 2065-1)</OutputDescriptor>
+    <Matrix inBitDepth="16f" outBitDepth="16f" >
+        <Array dim="3 3">
+			0.9404372683 -0.0183068787  0.0778696104
+			0.0083786969  0.8286599939  0.1629613092
+			0.0005471261 -0.0008833746  1.000336248
+        </Array>
+    </Matrix>
+</ProcessList>
+
